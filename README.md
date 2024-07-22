@@ -39,7 +39,7 @@ The user can then read the blogs and can even edit or delete the blogs
 
 ### Submitted idea
 
-![ideas](https://github.com/ananya-141/NTPC-Business-Consultancy/blob/master/9.jpg)
+![ideas](https://github.com/ananya-141/NTPC-Business-Consultancy/blob/master/8.png)
 
 *This screenshot shows the ideas page of our application where you can read others ideas *
 
