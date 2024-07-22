@@ -1,0 +1,166 @@
+﻿.ideabutton {
+    color: #0079FF;
+    position: relative;
+   top:35px;
+   right:110px;
+    background-color: transparent;
+    border-style: none;
+    transition: 0.3s;
+}
+
+b{
+    position:relative;
+    left:70px;
+}
+
+.ideabutton:hover {
+    font-size:15px;
+}
+.grey {
+    height: 170px;
+    width: 100%;
+    background-color: #cfcece;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+}
+
+.dessert {
+    background-image: url("Images/dessert.png");
+    width: 1520px;
+    height: 600px;
+    background-size: cover;
+    position: absolute;
+    top: 220px;
+    left: 0px
+}
+
+.grey2 {
+    height: 370px;
+    width: 100%;
+    background-color: #cfcece;
+    position: absolute;
+    top: 820px;
+    left: 0px;
+}
+
+.idea {
+    height: 850px;
+    width: 50%;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    left: 400px;
+}
+
+.ideaheading {
+    font-size: 45px;
+    font-weight: 500;
+    padding-top: 30px;
+    font-family: 'Fraunces', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Sacramento', cursive;
+    font-family: 'Ysabeau Office', sans-serif;
+}
+
+.ideasub {
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: 400;
+    font-family: Arial, sans-serif;
+}
+
+
+
+.attach{
+    position:absolute;
+    top:465px;
+    
+    
+}
+.attachlabel {
+    position: relative;
+    top: 470px;
+    right:180px;
+}
+
+
+.my-textbox {
+    width: 450px;
+    position:relative;
+    right:290px;
+    bottom:20px;
+    margin-bottom: 50px;
+}
+
+.big {
+    height: 100px;
+}
+
+.label1{
+    position:relative;
+   
+    bottom:70px;
+    right:10px;
+}
+.label2 {
+    position: absolute;
+    top:265px;
+    left: 160px;
+}
+
+.label3 {
+    position: absolute;
+    top: 340px;
+    left: 160px;
+}
+
+.label4 {
+    position: absolute;
+    top: 490px;
+    left: 160px;
+}
+.pdf {
+    padding-left: 160px;
+    margin-left: 500px;
+    position: relative;
+    right: 500px;
+}
+
+.submitidea {
+    position: relative;
+    bottom: 0px;
+    left:160px;
+    margin-top: 35px;
+    color: white;
+    width: 450px;
+    border-style: solid;
+    border: none;
+    height: 35px;
+    background-color: #0079FF;
+    transition:0.3s;
+}
+    .submitidea:hover {
+        background-color: #1B6B93;
+    }
+.validation-message1{
+    color:red;
+    position:absolute;
+    width:300px;
+    left:100px;
+    top:240px;
+}
+.validation-message2 {
+    color: red;
+    position: absolute;
+    width: 300px;
+    left: 60px;
+    top: 315px;
+}
+.validation-message3 {
+    color: red;
+    position: absolute;
+    width: 300px;
+    left: 78px;
+    top: 467px;
+}

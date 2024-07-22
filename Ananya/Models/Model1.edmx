@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NTPCBD2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_idea">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaofConcern" Type="varchar" MaxLength="255" />
+          <Property Name="Title" Type="varchar" MaxLength="255" />
+          <Property Name="Idea_brief" Type="varchar(max)" />
+          <Property Name="Detail_modelling" Type="varchar(max)" />
+          <Property Name="Attachment" Type="varchar(max)" />
+          <Property Name="Submitted_by" Type="varchar" MaxLength="10" />
+          <Property Name="Submitted_date" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Lastmodifiedby" Type="varchar" MaxLength="10" />
+          <Property Name="Lastmodified" Type="datetime" />
+          <Property Name="Activeflag" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Menudix" Type="varchar" MaxLength="100" />
+          <Property Name="Activeflag" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_menu_role_mapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_id" Type="int" />
+          <Property Name="Menu_id" Type="int" />
+          <Property Name="Activeflag" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Roledix" Type="varchar" MaxLength="50" />
+          <Property Name="Activeflag" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Statusdescription" Type="varchar" MaxLength="50" />
+          <Property Name="Activeflag" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Mobile" Type="varchar" MaxLength="11" />
+          <Property Name="Empno" Type="varchar" MaxLength="6" />
+          <Property Name="Role" Type="int" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Lastmodifiedby" Type="int" />
+          <Property Name="Lastmodified" Type="datetime" />
+          <Property Name="Activeflag" Type="bit" />
+        </EntityType>
+        <Association Name="FK__Tbl_idea__Status__5EBF139D">
+          <End Role="Tbl_status" Type="Self.Tbl_status" Multiplicity="0..1" />
+          <End Role="Tbl_idea" Type="Self.Tbl_idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tbl_idea">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NTPCBD2ModelStoreContainer">
+          <EntitySet Name="Tbl_idea" EntityType="Self.Tbl_idea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_menu" EntityType="Self.Tbl_menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_menu_role_mapping" EntityType="Self.Tbl_menu_role_mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_role" EntityType="Self.Tbl_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_status" EntityType="Self.Tbl_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_user" EntityType="Self.Tbl_user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Tbl_idea__Status__5EBF139D" Association="Self.FK__Tbl_idea__Status__5EBF139D">
+            <End Role="Tbl_status" EntitySet="Tbl_status" />
+            <End Role="Tbl_idea" EntitySet="Tbl_idea" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NTPCBD2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Menudix" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Activeflag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Tbl_menu_role_mapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_id" Type="Int32" />
+          <Property Name="Menu_id" Type="Int32" />
+          <Property Name="Activeflag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Tbl_role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Roledix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activeflag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Tbl_user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Empno" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Lastmodifiedby" Type="Int32" />
+          <Property Name="Lastmodified" Type="DateTime" Precision="3" />
+          <Property Name="Activeflag" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="NTPCBD2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_menu" EntityType="Self.Tbl_menu" />
+          <EntitySet Name="Tbl_menu_role_mapping" EntityType="Self.Tbl_menu_role_mapping" />
+          <EntitySet Name="Tbl_role" EntityType="Self.Tbl_role" />
+          <EntitySet Name="Tbl_user" EntityType="Self.Tbl_user" />
+          <EntitySet Name="Tbl_idea" EntityType="NTPCBD2Model.Tbl_idea" />
+          <EntitySet Name="Tbl_status" EntityType="NTPCBD2Model.Tbl_status" />
+          <AssociationSet Name="FK__Tbl_idea__Status__5EBF139D" Association="NTPCBD2Model.FK__Tbl_idea__Status__5EBF139D">
+            <End Role="Tbl_status" EntitySet="Tbl_status" />
+            <End Role="Tbl_idea" EntitySet="Tbl_idea" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Tbl_idea">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaofConcern" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Idea_brief" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Detail_modelling" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Submitted_by" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Submitted_date" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Lastmodifiedby" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Lastmodified" Type="DateTime" Precision="3" />
+          <Property Name="Activeflag" Type="Boolean" />
+          <NavigationProperty Name="Tbl_status" Relationship="NTPCBD2Model.FK__Tbl_idea__Status__5EBF139D" FromRole="Tbl_idea" ToRole="Tbl_status" />
+        </EntityType>
+        <EntityType Name="Tbl_status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Statusdescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activeflag" Type="Boolean" />
+          <NavigationProperty Name="Tbl_idea" Relationship="NTPCBD2Model.FK__Tbl_idea__Status__5EBF139D" FromRole="Tbl_status" ToRole="Tbl_idea" />
+        </EntityType>
+        <Association Name="FK__Tbl_idea__Status__5EBF139D">
+          <End Type="NTPCBD2Model.Tbl_status" Role="Tbl_status" Multiplicity="0..1" />
+          <End Type="NTPCBD2Model.Tbl_idea" Role="Tbl_idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tbl_idea">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NTPCBD2ModelStoreContainer" CdmEntityContainer="NTPCBD2Entities">
+          <EntitySetMapping Name="Tbl_menu">
+            <EntityTypeMapping TypeName="NTPCBD2Model.Tbl_menu">
+              <MappingFragment StoreEntitySet="Tbl_menu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Menudix" ColumnName="Menudix" />
+                <ScalarProperty Name="Activeflag" ColumnName="Activeflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_menu_role_mapping">
+            <EntityTypeMapping TypeName="NTPCBD2Model.Tbl_menu_role_mapping">
+              <MappingFragment StoreEntitySet="Tbl_menu_role_mapping">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+                <ScalarProperty Name="Menu_id" ColumnName="Menu_id" />
+                <ScalarProperty Name="Activeflag" ColumnName="Activeflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_role">
+            <EntityTypeMapping TypeName="NTPCBD2Model.Tbl_role">
+              <MappingFragment StoreEntitySet="Tbl_role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Roledix" ColumnName="Roledix" />
+                <ScalarProperty Name="Activeflag" ColumnName="Activeflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_user">
+            <EntityTypeMapping TypeName="NTPCBD2Model.Tbl_user">
+              <MappingFragment StoreEntitySet="Tbl_user">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Empno" ColumnName="Empno" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Lastmodifiedby" ColumnName="Lastmodifiedby" />
+                <ScalarProperty Name="Lastmodified" ColumnName="Lastmodified" />
+                <ScalarProperty Name="Activeflag" ColumnName="Activeflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_idea">
+            <EntityTypeMapping TypeName="NTPCBD2Model.Tbl_idea">
+              <MappingFragment StoreEntitySet="Tbl_idea">
+                <ScalarProperty Name="Activeflag" ColumnName="Activeflag" />
+                <ScalarProperty Name="Lastmodified" ColumnName="Lastmodified" />
+                <ScalarProperty Name="Lastmodifiedby" ColumnName="Lastmodifiedby" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Submitted_date" ColumnName="Submitted_date" />
+                <ScalarProperty Name="Submitted_by" ColumnName="Submitted_by" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+                <ScalarProperty Name="Detail_modelling" ColumnName="Detail_modelling" />
+                <ScalarProperty Name="Idea_brief" ColumnName="Idea_brief" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AreaofConcern" ColumnName="AreaofConcern" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_status">
+            <EntityTypeMapping TypeName="NTPCBD2Model.Tbl_status">
+              <MappingFragment StoreEntitySet="Tbl_status">
+                <ScalarProperty Name="Activeflag" ColumnName="Activeflag" />
+                <ScalarProperty Name="Statusdescription" ColumnName="Statusdescription" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,43 @@
+﻿body {
+    background-size: cover;
+    background-repeat: no-repeat,repeat;
+    height: 713px;
+    background-image: url("Images/login.png");
+}
+.home{
+    position:relative;
+    top:38px;
+    
+}
+.in{
+    position:relative;
+    top:20px;
+    left:50px;
+}
+.empno {
+    position: relative;
+    top: 20px;
+    right: 145px;
+}
+.pass {
+    position: relative;
+    right:400px;
+}
+.text-danger{
+    color:red;
+    position:absolute;
+    top:410px;
+}
+.loginbutton{
+    transition:0.3s;
+}
+h2{
+   
+
+}
+h4 {
+   
+}
+.form-horizontal{
+    
+}

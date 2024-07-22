@@ -1,0 +1,149 @@
+﻿@model IEnumerable<Ananya.Models.Tbl_idea>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/ideasubmitadmin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--FIRST DIV-->
+
+    <div class="ideabar">
+        <!--home div-->
+        <div class="dropdown">
+            <a href="/Home/Index"><button class="dropbtn">Home ︾ </button></a>
+            <div class="dropdown-content hey">
+                <a href="https://myapps.microsoft.com/">SSO</a>
+                <a href="http://10.0.20.20/">ESS</a>
+                <a href="https://pradip.ntpc.co.in/wps/portal">PRADIP</a>
+                <a href="https://ussc.ntpc.co.in/English/Default.aspx">HR USS</a>
+                <a href="http://10.1.97.1:2019/GoTo/dop-2018.pdf">DOP</a>
+                <a href="http://10.0.11.56/cchr/live/policy/HR_Manual/index.htm">HR Policy Manual</a>
+                <a href="http://10.0.8.68/ccAuth/WebContents/ArticleDetails/HR%20Circulars%20and%20Policies?SiteName=CC%20-%20EOC">HR Policies</a>
+            </div>
+        </div>
+        <!--bd department div-->
+        <div class="dropdown">
+            <button class="dropbtn">BD Department ︾</button>
+            <div class="dropdown-content hey">
+                <a href="https://drive.google.com/file/d/1CXedQRVr_lThhoWDhrmcHQ4Aexh7BT52/view?usp=sharing">Organization</a>
+
+                <a href="@Url.Action("Index", "Home")#service">Our Projects</a>
+
+            </div>
+        </div>
+        <!--cc department div-->
+        <div class="dropdown">
+            <button class="dropbtn">CC Department ︾</button>
+            <div class="dropdown-content hey">
+                <a href="#">Client Lists</a>
+                <a href="#">Client Feedbacks</a>
+
+            </div>
+        </div>
+        <!--site rhqs div-->
+        <div class="dropdown">
+            <a href="http://10.0.8.68/ccAuth/WebContents/ArticleDetails/Links%20to%20Plants?SiteName=CC%20-%20EOC"><button class="dropbtn">Site/RHQs/JVs</button></a>
+
+        </div>
+        <!--ext links div-->
+        <div class="dropdown">
+            <button class="dropbtn">Important Ext Links ︾</button>
+            <div class="dropdown-content hey">
+                <a href="https://powermin.gov.in/">Ministry of Power</a>
+                <a href="https://mnre.gov.in/">Ministry of New and Renewable Energy</a>
+                <a href="https://cea.nic.in/?lang=en">Central Electricity Authority</a>
+                <a href="https://www.niti.gov.in/">Niti Aayog</a>
+
+            </div>
+        </div>
+        <!--Ntpc webpage div-->
+        <div class="dropdown">
+            <a href="https://www.ntpc.co.in/"> <button class="dropbtn">NTPC Web Page </button></a>
+
+
+        </div>
+        <!--Knowledge management div-->
+        <div class="dropdown">
+            <button class="dropbtn">Knowledge Management </button>
+        </div>
+        <!--UPLOAD REPORT div-->
+        <!--
+
+        <div class="dropdown">
+        <button class="dropbtn">Upload Report ︾</button>
+        <div class="dropdown-content hey">
+            <a href="/Home/Report">Upload Monthly Report</a>
+            <a href="#">Upload Weekly Report</a>
+
+        </div>
+        </div>-->
+
+        <div class="dropdown">
+            <button class="dropbtn"><a class="admin" href="/Home/Index">Logout</a></button>
+        </div>
+    </div>
+
+    <!--secondiv-->
+    <div class="idea3">
+    </div>
+    <div class="idea2">
+        <h1 class="thead1"> Welcome Admin, @ViewBag.Name!</h1>
+        <div class="ideatable">
+
+            <table>
+                <h2 class="thead">Your Previously Submitted Ideas</h2>
+                <tr class="toprow">
+                    <th class="action">Unique Idea Id</th>
+                    <th class="action">Idea Title</th>
+                    <th class="action">Idea in Brief</th>
+                    <th class="action">Attachment</th>
+
+                    <th class="action">Action</th>
+
+                </tr>
+
+                @foreach (var customer in Model)
+                {
+                    <tr>
+                        <td class="center">@customer.ID</td>
+                        <td>@customer.Title</td>
+                        <td class="ideabrief">@customer.Idea_brief</td>
+                        <td class="center pdfidea"><a href=@customer.Attachment>pdf</a></td>
+                        <td>
+                            <form action="">
+                                <br />
+
+                                <select>
+                                    <option>Choose an action </option>
+                                    <option value="Accept">Accept</option>
+                                    <option value="Reject">Reject</option>
+
+                                </select>
+                                <br><br>
+                            </form>
+                        </td>
+                    </tr>
+                 }
+
+                
+
+
+            </table>
+            <input class="savechanges" type="submit" value="Save Changes" />
+        </div>
+    </div>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - NTPC LIMITED</p>
+    </footer>
+
+
+
+</body>
+</html>
